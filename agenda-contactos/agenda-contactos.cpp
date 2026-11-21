@@ -47,5 +47,18 @@ int main() {
     cout << "Contactos ordenados (inorden):" << endl;
     arbol.mostrarInorden();
 
+    // Ordenamiento y búsquedas
+    agenda.ordenarPorNombre();
+    cout << "Ordenados con insercion:" << endl;
+    for (int i = 0; i < agenda.tamano(); i++) {
+        cout << agenda.obtener(i).nombre << endl;
+    }
+
+    int pos = agenda.buscarBinaria("Luis");
+    cout << "Binaria 'Luis': posicion " << pos << endl;
+
+    pos = agenda.buscarSecuencial("8444-5555");
+    cout << "Secuencial '8444-5555': posicion " << pos << endl;
+
     return 0;
 }

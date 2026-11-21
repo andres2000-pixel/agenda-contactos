@@ -44,4 +44,37 @@ public:
     int tamano() const { return cantidad; }
 
     Contacto& obtener(int i) { return datos[i]; }
+    // Ordenamiento por inserción (por nombre)
+    void ordenarPorNombre() {
+        for (int i = 1; i < cantidad; i++) {
+            Contacto actual = datos[i];
+            int j = i - 1;
+            while (j >= 0 && datos[j].nombre > actual.nombre) {
+                datos[j + 1] = datos[j];
+                j--;
+            }
+            datos[j + 1] = actual;
+        }
+    }
+
+    // Búsqueda secuencial por teléfono: revisa uno por uno
+    int buscarSecuencial(const string& telefono) const {
+        for (int i = 0; i < cantidad; i++) {
+            if (datos[i].telefono == telefono) return i;
+        }
+        return -1;
+    }
+
+    // Búsqueda binaria por nombre: requiere el arreglo ya ordenado
+    int buscarBinaria(const string& nombre) const {
+        int inicio = 0;
+        int fin = cantidad - 1;
+        while (inicio <= fin) {
+            int medio = (inicio + fin) / 2;
+            if (datos[medio].nombre == nombre) return medio;
+            if (datos[medio].nombre < nombre) inicio = medio + 1;
+            else fin = medio - 1;
+        }
+        return -1;
+    }   
 };
