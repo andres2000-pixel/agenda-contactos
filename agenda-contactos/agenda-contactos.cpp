@@ -1,6 +1,7 @@
 #include <iostream>
 #include "ArregloDinamico.h"
 #include "ListaEnlazada.h"
+#include "Pila.h"
 using namespace std;
 
 int main() {
@@ -25,6 +26,15 @@ int main() {
         cout << "Eliminado: " << borrado.nombre << endl;
     }
     cout << "Quedan: " << lista.tamano() << endl;
+
+    // Prueba de la pila
+    Pila historial;
+    historial.apilar({ "Agregar",{ "Ana", "8888-1111", "ana@mail.com" } });
+    historial.apilar({ "Agregar",{ "Luis", "8777-2222", "luis@mail.com" } });
+    historial.apilar({ "Eliminar",{ "Ana", "8888-1111", "ana@mail.com" } });
+
+    cout << "Historial:" << endl;
+    historial.mostrarHistorial();
 
     return 0;
 }
