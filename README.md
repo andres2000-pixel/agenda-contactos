@@ -1,4 +1,4 @@
-# agenda-contactos
+
 # Agenda de Contactos
 Gestor de agenda de contactos en C++ para consola. Permite agregar, listar, buscar, modificar y eliminar contactos. Proyecto del curso Organización de archivos y estructuras de datos (UISIL).
 ## Funcionalidades
