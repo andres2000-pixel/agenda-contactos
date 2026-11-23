@@ -17,7 +17,7 @@ string pedirTexto(const string& mensaje) {
     } while (texto.empty());
     return texto;
 }
-// Verifica que el teléfono tenga solo dígitos y guiones
+// Verifica que el teléfono tenga solo dígitos y guiones    
 bool telefonoValido(const string& t) {
     if (t.length() < 8) return false;
     for (char ch : t) {
