@@ -17,12 +17,25 @@ string pedirTexto(const string& mensaje) {
     } while (texto.empty());
     return texto;
 }
+// Verifica que el teléfono tenga solo dígitos y guiones
+bool telefonoValido(const string& t) {
+    if (t.length() < 8) return false;
+    for (char ch : t) {
+        if (!isdigit(ch) && ch != '-') return false;
+    }
+    return true;
+}
 
 // Pide los datos de un contacto con validaciones
 Contacto pedirContacto() {
     Contacto c;
     c.nombre = pedirTexto("Nombre: ");
-    c.telefono = pedirTexto("Telefono: ");
+    do {
+        c.telefono = pedirTexto("Telefono: ");
+        if (!telefonoValido(c.telefono)) {
+            cout << "Telefono invalido (minimo 8 digitos, solo numeros y guiones)." << endl;
+        }
+    } while (!telefonoValido(c.telefono));
     do {
         c.correo = pedirTexto("Correo: ");
         if (c.correo.find('@') == string::npos) {
@@ -53,6 +66,7 @@ int main() {
         cout << "7. Encolar contacto pendiente" << endl;
         cout << "8. Transferir pendientes a la agenda" << endl;
         cout << "9. Mostrar arbol (inorden)" << endl;
+        cout << "10. Modificar contacto" << endl;
         cout << "0. Salir" << endl;
         cout << "Opcion: ";
 
@@ -160,6 +174,21 @@ int main() {
             }
             cout << "Contactos en el arbol (inorden):" << endl;
             arbol.mostrarInorden();
+            break;
+        }
+        case 10: {
+            string nombre = pedirTexto("Nombre del contacto a modificar: ");
+            agenda.ordenarPorNombre();
+            int pos = agenda.buscarBinaria(nombre);
+            if (pos == -1) {
+                cout << "No se encontro ese contacto." << endl;
+                break;
+            }
+            cout << "Ingrese los nuevos datos:" << endl;
+            Contacto nuevo = pedirContacto();
+            agenda.obtener(pos) = nuevo;
+            historial.apilar({ "Modificar", nuevo });
+            cout << "Contacto modificado." << endl;
             break;
         }
         case 0:
