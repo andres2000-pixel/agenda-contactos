@@ -77,4 +77,7 @@ public:
         }
         return -1;
     }   
+
+    // Vacía el arreglo (se usa al reconstruirlo tras eliminar)
+    void vaciar() { cantidad = 0; }
 };
