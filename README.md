@@ -31,5 +31,5 @@ MIT.
 ## Declaración de uso de inteligencia artificial
 - **Herramienta:** Claude (Anthropic).
 - **Para qué se usó:** orientación para organizar el proyecto  y apoyo para depurar errores de compilación.
-- **Partes apoyadas: Guía y depuración: los pasos para Git, GitHub y Visual Studio, y el diagnóstico de los errores de compilación. ordenamiento por inserción  y menú
+- **Partes apoyadas: Guía y depuración: los pasos para Git, GitHub y Visual Studio, y el diagnóstico de los errores de compilación, ordenamiento por inserción  y menú
 - **Modificaciones y validaciones realizadas por mí: El repositorio y los commits, la integración y las pruebas de cada estructura,  y la opción de modificar contacto, estructura inicial de las clases (arreglo dinámico, lista enlazada, pila, cola y árbol), ordenamiento por inserción, búsquedas y menú.
